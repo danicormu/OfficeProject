@@ -13,9 +13,9 @@ namespace OfficeProject.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class pruebaDBEntities : DbContext
+    public partial class pruebaContext : DbContext
     {
-        public pruebaDBEntities()
+        public pruebaContext()
             : base("name=pruebaDBEntities")
         {
         }

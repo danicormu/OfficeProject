@@ -1,0 +1,50 @@
+﻿@model IEnumerable<OfficeProject.Models.Curso>
+
+@{
+    ViewBag.Title = "ListCourses";
+}
+
+<h2>ListCourses</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateCourse")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreCurso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Puntos)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreCurso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Puntos)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "UpdateCourse", new { id = item.id }) |
+                @Html.ActionLink("Details", "CourseDetails", new { id = item.id }) |
+                @Html.ActionLink("Delete", "DeleteCourse", new { id = item.id }, new { @class = "aDelete"})
+            </td>
+        </tr>
+    }
+
+</table>
+
+@section scripts{
+    <script>
+        $(".aDelete").click(function (event) {
+            if (!confirm('Desea Eliminar este elemento?')) {
+                event.preventDefault();
+            }
+        })
+    </script>
+}

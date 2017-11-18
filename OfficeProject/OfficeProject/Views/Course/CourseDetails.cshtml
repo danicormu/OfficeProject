@@ -1,0 +1,34 @@
+﻿@model OfficeProject.Models.Curso
+
+@{
+    ViewBag.Title = "CourseDetails";
+}
+
+<h2>CourseDetails</h2>
+
+<div>
+    <h4>Curso</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Nombre Curso
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreCurso)
+        </dd>
+
+        <dt>
+            Puntos
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Puntos)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "UpdateCourse", new { id = Model.id }) |
+    @Html.ActionLink("Regresar a la lista", "ListCourses")
+</p>

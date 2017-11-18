@@ -66,6 +66,6 @@ C:\Users\Daniel\Documents\GitHub\OfficeProject\OfficeProject\OfficeProject\bin\M
 C:\Users\Daniel\Documents\GitHub\OfficeProject\OfficeProject\OfficeProject\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\Daniel\Documents\GitHub\OfficeProject\OfficeProject\OfficeProject\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\Daniel\Documents\GitHub\OfficeProject\OfficeProject\OfficeProject\bin\Microsoft.AI.Web.xml
-C:\Users\Daniel\Documents\GitHub\OfficeProject\OfficeProject\OfficeProject\obj\Debug\OfficeProject.csprojResolveAssemblyReference.cache
 C:\Users\Daniel\Documents\GitHub\OfficeProject\OfficeProject\OfficeProject\obj\Debug\OfficeProject.dll
 C:\Users\Daniel\Documents\GitHub\OfficeProject\OfficeProject\OfficeProject\obj\Debug\OfficeProject.pdb
+C:\Users\Daniel\Documents\GitHub\OfficeProject\OfficeProject\OfficeProject\obj\Debug\OfficeProject.csprojResolveAssemblyReference.cache

@@ -1,0 +1,33 @@
+﻿@model IEnumerable<OfficeProject.Models.Departamento>
+
+@{
+    ViewBag.Title = "ListDepartment";
+}
+
+<h2>ListDepartment</h2>
+
+<p>
+    @Html.ActionLink("Crear Departamento", "AddDepartment")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreDepartamento)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreDepartamento)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "UpdateDepartment", new { id=item.id }) |
+            @Html.ActionLink("Detalles", "DepartmentDetails", new { id=item.id }) |
+            @Html.ActionLink("Eliminar", "DeleteDepartment", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

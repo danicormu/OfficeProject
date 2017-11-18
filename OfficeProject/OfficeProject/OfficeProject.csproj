@@ -149,8 +149,12 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\CursoController.cs" />
+    <Compile Include="Controllers\CourseController.cs" />
+    <Compile Include="Controllers\DepartmentController.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PositionController.cs" />
+    <Compile Include="Controllers\SalaryController.cs" />
     <Compile Include="Models\Curso.cs">
       <DependentUpon>OfficeModel.tt</DependentUpon>
     </Compile>
@@ -198,8 +202,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="Models\OfficeModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>OfficeModel.Context.cs</LastGenOutput>
       <DependentUpon>OfficeModel.edmx</DependentUpon>
+      <LastGenOutput>OfficeModel.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\OfficeModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -243,10 +247,18 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Course\ListCourses.cshtml" />
+    <Content Include="Views\Course\CreateCourse.cshtml" />
+    <Content Include="Views\Course\UpdateCourse.cshtml" />
+    <Content Include="Views\Course\CourseDetails.cshtml" />
+    <Content Include="Views\Department\ListDepartment.cshtml" />
+    <Content Include="Views\Department\AddDepartment.cshtml" />
+    <Content Include="Views\Salary\ListSalary.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Curso\" />
+    <Folder Include="Views\Employee\" />
+    <Folder Include="Views\Position\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
