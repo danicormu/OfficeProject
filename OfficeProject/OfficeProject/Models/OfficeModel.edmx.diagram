@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f7252b64e79046bca21b184461900270" Name="Diagram1">
+        <EntityTypeShape EntityType="pruebaContext.Curso" Width="1.5" PointX="5.25" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="pruebaContext.Departamento" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="pruebaContext.Empleado" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="pruebaContext.Empleados_cursos" Width="1.5" PointX="7.5" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="pruebaContext.Puesto" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="pruebaContext.Salario_base" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <AssociationConnector Association="pruebaContext.FK_Empleados_Cursos_IdCurso" ManuallyRouted="false" />
+        <AssociationConnector Association="pruebaContext.FK_Empleado_IdDepartamento" ManuallyRouted="false" />
+        <AssociationConnector Association="pruebaContext.FK_Empleado_IdPuesto" ManuallyRouted="false" />
+        <AssociationConnector Association="pruebaContext.FK_Empleados_Cursos_IdEmpleado" ManuallyRouted="false" />
+        <AssociationConnector Association="pruebaContext.FK_Puesto_IdSalario" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

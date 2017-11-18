@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="pruebaContextStoreContainer" CdmEntityContainer="pruebaDBEntities">
+    <EntitySetMapping Name="Cursos">
+      <EntityTypeMapping TypeName="pruebaContext.Curso">
+        <MappingFragment StoreEntitySet="Cursos">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="NombreCurso" ColumnName="NombreCurso" />
+          <ScalarProperty Name="Puntos" ColumnName="Puntos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departamentos">
+      <EntityTypeMapping TypeName="pruebaContext.Departamento">
+        <MappingFragment StoreEntitySet="Departamentos">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="NombreDepartamento" ColumnName="NombreDepartamento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empleados">
+      <EntityTypeMapping TypeName="pruebaContext.Empleado">
+        <MappingFragment StoreEntitySet="Empleados">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="NombreEmpleado" ColumnName="NombreEmpleado" />
+          <ScalarProperty Name="PorcAdicional" ColumnName="PorcAdicional" />
+          <ScalarProperty Name="PagoPorPunto" ColumnName="PagoPorPunto" />
+          <ScalarProperty Name="IdPuesto" ColumnName="IdPuesto" />
+          <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empleados_cursos">
+      <EntityTypeMapping TypeName="pruebaContext.Empleados_cursos">
+        <MappingFragment StoreEntitySet="Empleados_cursos">
+          <ScalarProperty Name="IdEmpleado" ColumnName="IdEmpleado" />
+          <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Puestos">
+      <EntityTypeMapping TypeName="pruebaContext.Puesto">
+        <MappingFragment StoreEntitySet="Puestos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NombrePuesto" ColumnName="NombrePuesto" />
+          <ScalarProperty Name="IdSalario" ColumnName="IdSalario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Salario_base">
+      <EntityTypeMapping TypeName="pruebaContext.Salario_base">
+        <MappingFragment StoreEntitySet="Salario_base">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="salario" ColumnName="salario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

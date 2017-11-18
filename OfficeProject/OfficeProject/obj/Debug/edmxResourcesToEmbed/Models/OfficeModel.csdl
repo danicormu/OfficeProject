@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="pruebaContext" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Curso">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreCurso" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Puntos" Type="Int32" />
+    <NavigationProperty Name="Empleados_cursos" Relationship="Self.FK_Empleados_Cursos_IdCurso" FromRole="Cursos" ToRole="Empleados_cursos" />
+  </EntityType>
+  <EntityType Name="Departamento">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreDepartamento" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Empleados" Relationship="Self.FK_Empleado_IdDepartamento" FromRole="Departamentos" ToRole="Empleados" />
+  </EntityType>
+  <EntityType Name="Empleado">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreEmpleado" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PorcAdicional" Type="Int32" />
+    <Property Name="PagoPorPunto" Type="Int32" />
+    <Property Name="IdPuesto" Type="Int32" Nullable="false" />
+    <Property Name="IdDepartamento" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Departamento" Relationship="Self.FK_Empleado_IdDepartamento" FromRole="Empleados" ToRole="Departamentos" />
+    <NavigationProperty Name="Puesto" Relationship="Self.FK_Empleado_IdPuesto" FromRole="Empleados" ToRole="Puestos" />
+    <NavigationProperty Name="Empleados_cursos" Relationship="Self.FK_Empleados_Cursos_IdEmpleado" FromRole="Empleados" ToRole="Empleados_cursos" />
+  </EntityType>
+  <EntityType Name="Empleados_cursos">
+    <Key>
+      <PropertyRef Name="IdEmpleado" />
+      <PropertyRef Name="IdCurso" />
+    </Key>
+    <Property Name="IdEmpleado" Type="Int32" Nullable="false" />
+    <Property Name="IdCurso" Type="Int32" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Curso" Relationship="Self.FK_Empleados_Cursos_IdCurso" FromRole="Empleados_cursos" ToRole="Cursos" />
+    <NavigationProperty Name="Empleado" Relationship="Self.FK_Empleados_Cursos_IdEmpleado" FromRole="Empleados_cursos" ToRole="Empleados" />
+  </EntityType>
+  <EntityType Name="Puesto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombrePuesto" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="IdSalario" Type="Int32" />
+    <NavigationProperty Name="Empleados" Relationship="Self.FK_Empleado_IdPuesto" FromRole="Puestos" ToRole="Empleados" />
+    <NavigationProperty Name="Salario_base" Relationship="Self.FK_Puesto_IdSalario" FromRole="Puestos" ToRole="Salario_base" />
+  </EntityType>
+  <EntityType Name="Salario_base">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="salario" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Puestos" Relationship="Self.FK_Puesto_IdSalario" FromRole="Salario_base" ToRole="Puestos" />
+  </EntityType>
+  <Association Name="FK_Empleados_Cursos_IdCurso">
+    <End Role="Cursos" Type="Self.Curso" Multiplicity="1" />
+    <End Role="Empleados_cursos" Type="Self.Empleados_cursos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cursos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Empleados_cursos">
+        <PropertyRef Name="IdCurso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Empleado_IdDepartamento">
+    <End Role="Departamentos" Type="Self.Departamento" Multiplicity="1" />
+    <End Role="Empleados" Type="Self.Empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departamentos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Empleados">
+        <PropertyRef Name="IdDepartamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Empleado_IdPuesto">
+    <End Role="Puestos" Type="Self.Puesto" Multiplicity="1" />
+    <End Role="Empleados" Type="Self.Empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Puestos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Empleados">
+        <PropertyRef Name="IdPuesto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Empleados_Cursos_IdEmpleado">
+    <End Role="Empleados" Type="Self.Empleado" Multiplicity="1" />
+    <End Role="Empleados_cursos" Type="Self.Empleados_cursos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleados">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Empleados_cursos">
+        <PropertyRef Name="IdEmpleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Puesto_IdSalario">
+    <End Role="Salario_base" Type="Self.Salario_base" Multiplicity="0..1" />
+    <End Role="Puestos" Type="Self.Puesto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Salario_base">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Puestos">
+        <PropertyRef Name="IdSalario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="pruebaDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cursos" EntityType="Self.Curso" />
+    <EntitySet Name="Departamentos" EntityType="Self.Departamento" />
+    <EntitySet Name="Empleados" EntityType="Self.Empleado" />
+    <EntitySet Name="Empleados_cursos" EntityType="Self.Empleados_cursos" />
+    <EntitySet Name="Puestos" EntityType="Self.Puesto" />
+    <EntitySet Name="Salario_base" EntityType="Self.Salario_base" />
+    <AssociationSet Name="FK_Empleados_Cursos_IdCurso" Association="Self.FK_Empleados_Cursos_IdCurso">
+      <End Role="Cursos" EntitySet="Cursos" />
+      <End Role="Empleados_cursos" EntitySet="Empleados_cursos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Empleado_IdDepartamento" Association="Self.FK_Empleado_IdDepartamento">
+      <End Role="Departamentos" EntitySet="Departamentos" />
+      <End Role="Empleados" EntitySet="Empleados" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Empleado_IdPuesto" Association="Self.FK_Empleado_IdPuesto">
+      <End Role="Puestos" EntitySet="Puestos" />
+      <End Role="Empleados" EntitySet="Empleados" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Empleados_Cursos_IdEmpleado" Association="Self.FK_Empleados_Cursos_IdEmpleado">
+      <End Role="Empleados" EntitySet="Empleados" />
+      <End Role="Empleados_cursos" EntitySet="Empleados_cursos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Puesto_IdSalario" Association="Self.FK_Puesto_IdSalario">
+      <End Role="Salario_base" EntitySet="Salario_base" />
+      <End Role="Puestos" EntitySet="Puestos" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
