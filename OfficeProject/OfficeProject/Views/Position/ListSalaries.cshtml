@@ -1,0 +1,11 @@
+﻿@model IEnumerable<OfficeProject.Models.Salario_base>
+
+
+<select class="form-control" id="IdSalario" name="IdSalario">
+    @foreach (var item in Model)
+    {
+        <option value="@item.id">@item.salario</option>
+    }
+</select>
+
+

@@ -270,6 +270,7 @@
     <Content Include="Views\Department\UpdateDepartment.cshtml" />
     <Content Include="Views\Department\DeleteDepartment.cshtml" />
     <Content Include="Views\Course\DeleteCourse.cshtml" />
+    <Content Include="Views\Position\ListSalaries.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

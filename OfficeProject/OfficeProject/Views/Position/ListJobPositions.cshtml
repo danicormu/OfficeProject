@@ -4,18 +4,18 @@
     ViewBag.Title = "ListJobPositions";
 }
 
-<h2>ListJobPositions</h2>
+<h2>Puestos</h2>
 
 <p>
-    @Html.ActionLink("Create New", "AddJobPosition")
+    @Html.ActionLink("Crear Puesto", "AddJobPosition")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.NombrePuesto)
+            Puesto
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.IdSalario)
+            Salario
         </th>
         <th></th>
     </tr>
@@ -25,7 +25,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.NombrePuesto)
         </td>
-        <td>
+        <td>            
             @Html.DisplayFor(modelItem => item.IdSalario)
         </td>
         <td>

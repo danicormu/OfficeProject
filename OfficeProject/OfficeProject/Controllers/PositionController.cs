@@ -32,6 +32,8 @@ namespace OfficeProject.Controllers
             }
         }
 
+
+            
         //Action to Open View
         public ActionResult AddJobPosition()
         {
@@ -57,6 +59,7 @@ namespace OfficeProject.Controllers
                 throw;
             }
         }
+       
 
         //Update Job Position
         public ActionResult UpdateJobPosition(int id)
@@ -117,6 +120,41 @@ namespace OfficeProject.Controllers
             }
             catch (Exception)
             {
+                throw;
+            }
+        }
+
+        //get list salaries
+        public ActionResult ListSalaries()
+        {
+            try
+            {
+                using (var db = new pruebaContext())
+                {
+                    List<Salario_base> list = db.Salario_base.ToList();
+                    return PartialView(list);
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        //Show position By Id
+        public ActionResult ShowSalaryById(int id)
+        {
+            try
+            {
+                using(var db = new pruebaContext()){
+                    Salario_base sb = db.Salario_base.Where(a => a.id == id).FirstOrDefault();
+                    string salary = sb.salario.ToString();
+                    return PartialView(salary);
+                }
+            }
+            catch (Exception)
+            {
+
                 throw;
             }
         }
