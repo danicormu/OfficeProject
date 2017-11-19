@@ -32,10 +32,30 @@ namespace OfficeProject.Controllers
             }
         }
 
-        //Add Job Position
-        public ActionResult AddJobPosition(Puesto puesto)
+        //Action to Open View
+        public ActionResult AddJobPosition()
         {
             return View();
+        }
+
+        //Add Job Position
+        [HttpPost]
+        public ActionResult AddJobPosition(Puesto puesto)
+        {
+            try
+            {
+                using(var db = new pruebaContext())
+                {
+                    db.Puestos.Add(puesto);
+                    db.SaveChanges();
+                    return RedirectToAction("ListJobPositions");
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         //Update Job Position

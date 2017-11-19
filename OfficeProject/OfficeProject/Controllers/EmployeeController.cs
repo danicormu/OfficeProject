@@ -32,10 +32,30 @@ namespace OfficeProject.Controllers
             }
         }
 
-        //Add an employee
-        public ActionResult AddEmployee(Empleado empleado)
+        //Action to Open View
+        public ActionResult AddEmployee()
         {
             return View();
+        }
+
+        //Add an employee
+        [HttpPost]
+        public ActionResult AddEmployee(Empleado empleado)
+        {
+            try
+            {
+                using(var db = new pruebaContext())
+                {
+                    db.Empleados.Add(empleado);
+                    db.SaveChanges();
+                    return RedirectToAction("ListEmployees");
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         //Edit an employee

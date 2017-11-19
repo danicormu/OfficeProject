@@ -33,27 +33,32 @@ namespace OfficeProject.Controllers
             }
         }
 
+        //Action to Open the View 
+        public ActionResult AddDepartment()
+        {
+            return View();
+        }
+
         //Add Department
-        //[HttpPost]
+        [HttpPost]
         public ActionResult AddDepartment(Departamento dep)
         {
-            //if (!ModelState.IsValid)
-            //    return View();
-            //try
-            //{
-            //    using(var db = new pruebaContext())
-            //    {
-            //        db.Departamentos.Add(dep);
-            //        db.SaveChanges();
-            //        return RedirectToAction("ListDepartment");
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    ModelState.AddModelError("Error al agregar el Curso", ex);
-            //    return View();
-            //}
-            return View();
+            if (!ModelState.IsValid)
+                return View();
+            try
+            {
+                using (var db = new pruebaContext())
+                {
+                    db.Departamentos.Add(dep);
+                    db.SaveChanges();
+                    return RedirectToAction("ListDepartment");
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("Error al agregar el Curso", ex);
+                return View();
+            }
         }
 
 

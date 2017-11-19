@@ -32,10 +32,30 @@ namespace OfficeProject.Controllers
             }
         }
 
-        //Add Salary
-        public ActionResult AddSalary(Salario_base sb)
+        //Action to Open View
+        public ActionResult AddSalary()
         {
+            return View();
+        }
 
+        //Add Salary
+        [HttpPost]
+        public ActionResult AddSalary(Salario_base salario)
+        {
+            try
+            {
+                using (var db = new pruebaContext())
+                {
+                    db.Salario_base.Add(salario);
+                    db.SaveChanges();
+                    return RedirectToAction("ListSalary");
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
             return View();
         }
 
@@ -59,14 +79,14 @@ namespace OfficeProject.Controllers
 
         //Update Salary
         [HttpPost]
-        public ActionResult UpdateSalary(Salario_base salary)
+        public ActionResult UpdateSalary(Salario_base salario)
         {
             try
             {
                 using(var db = new pruebaContext())
                 {
-                    Salario_base sb = db.Salario_base.Find(salary.id);
-                    sb.salario = salary.salario;
+                    Salario_base sb = db.Salario_base.Find(salario.id);
+                    sb.salario = salario.salario;
                     db.SaveChanges();
                     return RedirectToAction("ListSalary");
                 }

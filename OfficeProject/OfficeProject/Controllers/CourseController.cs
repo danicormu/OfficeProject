@@ -27,6 +27,11 @@ namespace OfficeProject.Controllers
             }
         }
 
+        public ActionResult CreateCourse()
+        {
+            return View();
+        }
+
         [HttpPost]
         public ActionResult CreateCourse(Curso curso)
         {
