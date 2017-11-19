@@ -1,0 +1,57 @@
+﻿@model IEnumerable<OfficeProject.Models.Empleado>
+
+@{
+    ViewBag.Title = "ListEmployees";
+}
+
+<h2>ListEmployees</h2>
+
+<p>
+    @Html.ActionLink("Create New", "AddEmployee")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreEmpleado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PorcAdicional)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PagoPorPunto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdPuesto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdDepartamento)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreEmpleado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PorcAdicional)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PagoPorPunto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdPuesto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdDepartamento)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "UpdateEmployee", new { id=item.id }) |
+            @Html.ActionLink("Detalle", "EmployeeDetails", new { id=item.id }) |
+            @Html.ActionLink("Eliminar", "DeleteEmployee", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

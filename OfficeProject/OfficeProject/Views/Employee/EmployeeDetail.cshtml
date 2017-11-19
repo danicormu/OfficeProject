@@ -1,0 +1,58 @@
+﻿@model OfficeProject.Models.Empleado
+
+@{
+    ViewBag.Title = "EmployeeDetail";
+}
+
+<h2>EmployeeDetail</h2>
+
+<div>
+    <h4>Empleado</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreEmpleado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreEmpleado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PorcAdicional)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PorcAdicional)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PagoPorPunto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PagoPorPunto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdPuesto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdPuesto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdDepartamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdDepartamento)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "UpdateEmployee", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "ListEmployees")
+</p>

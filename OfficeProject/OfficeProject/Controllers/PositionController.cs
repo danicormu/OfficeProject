@@ -18,7 +18,18 @@ namespace OfficeProject.Controllers
         //List all job position
         public ActionResult ListJobPositions()
         {
-            return View();
+            try
+            {
+                using (var db = new pruebaContext())
+                {
+                    List<Puesto> list = db.Puestos.ToList();
+                    return View(list);
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         //Add Job Position
@@ -30,13 +41,39 @@ namespace OfficeProject.Controllers
         //Update Job Position
         public ActionResult UpdateJobPosition(int id)
         {
-            return View();
+            try
+            {
+                using (var db = new pruebaContext())
+                {
+                    Puesto pto = db.Puestos.Where(a => a.Id == id).FirstOrDefault();
+                    return View(pto);
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         //Update Job Position
+        [HttpPost]
         public ActionResult UpdateJobPosition(Puesto puesto)
         {
-            return View();
+            try
+            {
+                using (var db = new pruebaContext())
+                {
+                    Puesto pto = db.Puestos.Find(puesto.Id);
+                    pto.NombrePuesto = puesto.NombrePuesto;
+                    pto.IdSalario = puesto.IdSalario;
+                    db.SaveChanges();
+                    return RedirectToAction("ListJobPosition");
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         //Show the job position detail
@@ -48,7 +85,20 @@ namespace OfficeProject.Controllers
         //Delete Job Position by id
         public ActionResult DeleteJobPosition(int id)
         {
-            return View();
+            try
+            {
+                using(var db = new pruebaContext())
+                {
+                    Puesto pto = db.Puestos.Find(id);
+                    db.Puestos.Remove(pto);
+                    db.SaveChanges();
+                    return RedirectToAction("ListJobPosition");
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

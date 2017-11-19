@@ -1,0 +1,39 @@
+﻿@model IEnumerable<OfficeProject.Models.Puesto>
+
+@{
+    ViewBag.Title = "ListJobPositions";
+}
+
+<h2>ListJobPositions</h2>
+
+<p>
+    @Html.ActionLink("Create New", "AddJobPosition")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NombrePuesto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdSalario)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombrePuesto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdSalario)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "UpdateJobPosition", new { id=item.Id }) |
+            @Html.ActionLink("Detalle", "DetailJobPosition", new { id=item.Id }) |
+            @Html.ActionLink("Eliminar", "DeleteJobPosition", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

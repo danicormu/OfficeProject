@@ -254,11 +254,25 @@
     <Content Include="Views\Department\ListDepartment.cshtml" />
     <Content Include="Views\Department\AddDepartment.cshtml" />
     <Content Include="Views\Salary\ListSalary.cshtml" />
+    <Content Include="Views\Employee\AddEmployee.cshtml" />
+    <Content Include="Views\Salary\AddSalary.cshtml" />
+    <Content Include="Views\Salary\UpdateSalary.cshtml" />
+    <Content Include="Views\Salary\DeleteSalary.cshtml" />
+    <Content Include="Views\Position\ListJobPositions.cshtml" />
+    <Content Include="Views\Position\AddJobPosition.cshtml" />
+    <Content Include="Views\Position\UpdateJobPosition.cshtml" />
+    <Content Include="Views\Position\DeleteJobPosition.cshtml" />
+    <Content Include="Views\Position\DetailJobPosition.cshtml" />
+    <Content Include="Views\Employee\ListEmployees.cshtml" />
+    <Content Include="Views\Employee\UpdateEmployee.cshtml" />
+    <Content Include="Views\Employee\EmployeeDetail.cshtml" />
+    <Content Include="Views\Employee\DeleteEmployee.cshtml" />
+    <Content Include="Views\Department\UpdateDepartment.cshtml" />
+    <Content Include="Views\Department\DeleteDepartment.cshtml" />
+    <Content Include="Views\Course\DeleteCourse.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Employee\" />
-    <Folder Include="Views\Position\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

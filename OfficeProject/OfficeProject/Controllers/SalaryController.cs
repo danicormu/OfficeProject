@@ -35,31 +35,74 @@ namespace OfficeProject.Controllers
         //Add Salary
         public ActionResult AddSalary(Salario_base sb)
         {
+
             return View();
         }
 
         //Update 
         public ActionResult UpdateSalary(int id)
         {
-            return View();
+            try
+            {
+                using(var db = new pruebaContext())
+                {
+                    Salario_base sb = db.Salario_base.Where(a => a.id == id).FirstOrDefault();
+                    return View(sb);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         //Update Salary
-        public ActionResult UpdateSalary(Salario_base sb)
+        [HttpPost]
+        public ActionResult UpdateSalary(Salario_base salary)
         {
-            return View();
+            try
+            {
+                using(var db = new pruebaContext())
+                {
+                    Salario_base sb = db.Salario_base.Find(salary.id);
+                    sb.salario = salary.salario;
+                    db.SaveChanges();
+                    return RedirectToAction("ListSalary");
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         //Details salary
         public ActionResult SalaryDetails()
         {
+
             return View();
         }
 
         //Delete Salary
-        public ActionResult DeleteSalary()
+        public ActionResult DeleteSalary(int id)
         {
-            return View();
+            try
+            {
+                using(var db = new pruebaContext())
+                {
+                    Salario_base sb = db.Salario_base.Find(id);
+                    db.Salario_base.Remove(sb);
+                    db.SaveChanges();
+                    return RedirectToAction("ListSalary");
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }
