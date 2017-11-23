@@ -21,10 +21,15 @@ namespace OfficeProject.Models
         }
     
         public int id { get; set; }
+        [System.ComponentModel.DisplayName("Nombre")]
         public string NombreEmpleado { get; set; }
+        [System.ComponentModel.DisplayName("Porcentaje Adicional")]
         public Nullable<int> PorcAdicional { get; set; }
+        [System.ComponentModel.DisplayName("Pago por punto")]
         public Nullable<int> PagoPorPunto { get; set; }
+        [System.ComponentModel.DisplayName("Puesto")]
         public int IdPuesto { get; set; }
+        [System.ComponentModel.DisplayName("Departamento")]
         public int IdDepartamento { get; set; }
     
         public virtual Departamento Departamento { get; set; }

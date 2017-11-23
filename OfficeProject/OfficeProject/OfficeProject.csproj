@@ -158,6 +158,7 @@
     <Compile Include="Models\Curso.cs">
       <DependentUpon>OfficeModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DBConnection.cs" />
     <Compile Include="Models\Departamento.cs">
       <DependentUpon>OfficeModel.tt</DependentUpon>
     </Compile>

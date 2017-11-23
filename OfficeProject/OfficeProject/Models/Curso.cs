@@ -11,7 +11,8 @@ namespace OfficeProject.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Curso
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,7 +22,9 @@ namespace OfficeProject.Models
         }
     
         public int id { get; set; }
+        [System.ComponentModel.DisplayName("Curso")]
         public string NombreCurso { get; set; }
+        [System.ComponentModel.DisplayName("Puntos")]
         public Nullable<int> Puntos { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

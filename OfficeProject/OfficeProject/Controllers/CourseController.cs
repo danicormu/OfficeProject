@@ -14,7 +14,7 @@ namespace OfficeProject.Controllers
         {
             try
             {
-                using (pruebaContext db = new pruebaContext())
+                using (var db = new pruebaContext())
                 {
                     List<Curso> list = db.Cursos.ToList();
                     return View(list);
@@ -40,7 +40,7 @@ namespace OfficeProject.Controllers
 
             try
             {
-                using(pruebaContext db = new pruebaContext())
+                using(var db = new pruebaContext())
                 {
                     db.Cursos.Add(curso);
                     db.SaveChanges();
@@ -58,7 +58,7 @@ namespace OfficeProject.Controllers
         {
             try
             {
-                using (pruebaContext db = new pruebaContext())
+                using (var db = new pruebaContext())
                 {
                     Curso cu = db.Cursos.Where(a => a.id == id).FirstOrDefault();
                     return View(cu);
@@ -76,7 +76,7 @@ namespace OfficeProject.Controllers
         {
             try
             {
-                using(pruebaContext db = new pruebaContext())
+                using(var db = new pruebaContext())
                 {
                     Curso cu = db.Cursos.Find(curso.id);
                     cu.NombreCurso = curso.NombreCurso;
@@ -97,7 +97,7 @@ namespace OfficeProject.Controllers
         {
             try
             {
-                using(pruebaContext db = new pruebaContext())
+                using(var db = new pruebaContext())
                 {
                     Curso cu = db.Cursos.Find(id);
                     return View(cu);
@@ -114,7 +114,7 @@ namespace OfficeProject.Controllers
         {
             try
             {
-                using (pruebaContext db = new pruebaContext())
+                using (var db = new pruebaContext())
                 {
                     Curso cu = db.Cursos.Find(id);
                     db.Cursos.Remove(cu);

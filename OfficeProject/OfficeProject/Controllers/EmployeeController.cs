@@ -9,22 +9,16 @@ namespace OfficeProject.Controllers
 {
     public class EmployeeController : Controller
     {
-        // GET: Employee
-        //public ActionResult Index()
-        //{
-        //    return View();
-        //}
-
+       
         //List all employees
         public ActionResult ListEmployees()
         {
             try
             {
-                using(var db = new pruebaContext())
-                {
-                    List<Empleado> list = db.Empleados.ToList();
-                    return View(list);
-                }
+                pruebaContext db = new pruebaContext();
+                List<Empleado> list = db.Empleados.ToList();
+                return View(list);
+                
             }
             catch (Exception)
             {

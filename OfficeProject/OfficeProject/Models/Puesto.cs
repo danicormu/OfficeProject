@@ -21,7 +21,9 @@ namespace OfficeProject.Models
         }
     
         public int Id { get; set; }
+        [System.ComponentModel.DisplayName("Puesto")]
         public string NombrePuesto { get; set; }
+        [System.ComponentModel.DisplayName("Salario")]
         public Nullable<int> IdSalario { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
